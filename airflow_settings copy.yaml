@@ -1,0 +1,47 @@
+# This file allows you to configure Airflow Connections, Pools, and Variables in a single place for local development only.
+# NOTE: json dicts can be added to the conn_extra field as yaml key value pairs. See the example below.
+
+# For more information, refer to our docs: https://docs.astronomer.io/develop-project#configure-airflow_settingsyaml-local-development-only
+# For questions, reach out to: https://support.astronomer.io
+# For issues create an issue ticket here: https://github.com/astronomer/astro-cli/issues
+
+airflow:
+    connections:
+        - conn_id: ""
+          conn_type: ""
+          conn_host: ""
+          conn_schema: ""
+          conn_login: ""
+          conn_password: ""
+          conn_port: 0
+          conn_uri: ""
+          conn_extra:
+            example_extra_field: example-value
+        - conn_id: google_cloud_default
+          conn_type: google_cloud_platform
+          conn_host: ""
+          conn_schema: ""
+          conn_login: ""
+          conn_password: ""
+          conn_port: 0
+          conn_uri: ""
+          conn_extra:
+            extra__google_cloud_platform__keyfile_path: /usr/local/airflow/include/keys/<insert_key>
+            extra__google_cloud_platform__project: <input_your_projectid>
+            extra__google_cloud_platform__scope: https://www.googleapis.com/auth/cloud-platform
+            key_path: /usr/local/airflow/include/keys/<insert_key>
+            num_retries: "5"
+            project: <insert_projectid>
+            scope: https://www.googleapis.com/auth/cloud-platform
+    pools:
+        - pool_name: ""
+          pool_slot: 0
+          pool_description: ""
+        - pool_name: default_pool
+          pool_slot: 128
+          pool_description: Default pool
+    variables:
+        - variable_name: "bucket_name"
+          variable_value: "<your_bucket_name>"
+        - variable_name: "project_id"
+          variable_value: "<your_project_id>"
